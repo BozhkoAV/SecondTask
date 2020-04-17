@@ -13,11 +13,14 @@ class EncoderTest {
 
     @Test
     fun encode() {
-        val encoder = Encoder("key")
-        encoder.encode("files/in.txt", "files/temp.txt", "key")
-        val encoder2 = Encoder("key")
-        encoder2.encode("files/temp.txt", "files/out.txt", "key")
+        val encoder = Encoder("1104")
+        val encoder2 = Encoder("0411")
+        encoder.encode("files/in.txt", "files/temp.txt")
+        assertFileContent("files/temp.txt", "Ya}h~(1S~v}`?")
+        encoder.encode("files/temp.txt", "files/out.txt")
         assertFileContent("files/out.txt", "Hello, World.")
+        encoder2.encode("files/temp.txt", "files/out2.txt")
+        assertFileContent("files/out2.txt", "]pyyz95Bzgyq;")
         File("files/temp.txt").delete()
     }
 

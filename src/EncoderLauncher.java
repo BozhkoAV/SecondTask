@@ -44,7 +44,7 @@ public class EncoderLauncher {
         }
         Encoder encoder = new Encoder(key);
         try {
-            int result = encoder.encode(inputFileName, outputFileName, key);
+            int result = encoder.encode(inputFileName, outputFileName);
             if (EncodingKey != null) {
                 System.out.println("Total of " + result + " symbols encoded");
             } else {
